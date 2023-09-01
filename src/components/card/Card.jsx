@@ -22,6 +22,7 @@ const Card = () => {
         //seta a variavel pokemon com o array de pokemons da api
         .then(data => setPokemon(data))
         //se o index for menor que o tamanho do array, ele soma 1 no index, se não, ele volta pro primeiro pokemon
+        console.log(pokemon)    
         if (index < pokemon.length - 1) {
             setIndex(index + 1)
         } else {
@@ -58,10 +59,20 @@ const Card = () => {
                 {pokemon[index].category}
                 </Text>
                 <Image
-                fit={"fill"}
+                fit={"contain"}
+                src={pokemon[index].background_image_url}
+                alt='coisas'
+                boxSize="250px"
+                borderRadius={'1rem'}
+                />
+                <Image
+                fit={"contain"}
                 src={pokemon[index].image_url}
                 alt='coisas'
-                boxSize="150px"
+                boxSize="100px"
+                position='absolute'
+                //center this
+                top={230}
                 />
             </Flex>
             </Box>
